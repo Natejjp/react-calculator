@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export function App() {
+  const [answer, setAnswer] = useState(0)
+
+  function handleNumber() {
+    setAnswer(7)
+    console.log('clicked')
+  }
+
   return (
     <main>
       <section>
         <ul>
-          <li className="input">0</li>
+          <li className="input">{answer}</li>
           <li className="clear">AC</li>
           <li>/</li>
-          <li>7</li>
+          <li onClick={handleNumber}>7</li>
           <li>8</li>
           <li>9</li>
           <li>*</li>
@@ -24,7 +31,6 @@ export function App() {
           <li>.</li>
           <li>=</li>
         </ul>
-        {/* <ul></ul> */}
       </section>
     </main>
   )
