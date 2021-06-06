@@ -15,7 +15,7 @@ export function App() {
 
   function equal() {
     const pineapple = displayNumber + firstNumber
-    console.log(pineapple)
+    setDisplayNumber(pineapple)
   }
 
   return (
