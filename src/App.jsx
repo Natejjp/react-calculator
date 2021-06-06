@@ -3,19 +3,22 @@ import React, { useState } from 'react'
 export function App() {
   const [displayNumber, setDisplayNumber] = useState(0)
   const [firstNumber, setFirstNumber] = useState(0)
-  const [secondNumber, setSecondNumber] = useState(0)
+
+  function clear() {
+    setDisplayNumber(0)
+    setFirstNumber(0)
+  }
 
   function add() {
-    const test = displayNumber
+    setFirstNumber(displayNumber)
+  }
 
-    setFirstNumber(test)
-
-    console.log(test)
+  function sub() {
+    setFirstNumber(displayNumber)
   }
 
   function equal() {
-    const pineapple = displayNumber + firstNumber
-    setDisplayNumber(pineapple)
+    setDisplayNumber(displayNumber + firstNumber)
   }
 
   return (
@@ -23,7 +26,9 @@ export function App() {
       <section>
         <ul>
           <li className="input">{displayNumber}</li>
-          <li className="clear">AC</li>
+          <li onClick={clear} className="clear">
+            AC
+          </li>
           <li>/</li>
           <li onClick={() => setDisplayNumber(7)}>7</li>
           <li onClick={() => setDisplayNumber(8)}>8</li>
@@ -36,7 +41,7 @@ export function App() {
           <li onClick={() => setDisplayNumber(1)}>1</li>
           <li onClick={() => setDisplayNumber(2)}>2</li>
           <li onClick={() => setDisplayNumber(3)}>3</li>
-          <li>-</li>
+          <li onClick={sub}>-</li>
           <li className="zero" onClick={() => setDisplayNumber(0)}>
             0
           </li>
